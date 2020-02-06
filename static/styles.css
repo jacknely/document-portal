@@ -1,0 +1,7 @@
+.td-buttons form {
+    display: inline-block;
+}
+
+.center {
+    margin: 0 auto !important; /* I have added the !important attribute just for debugging, you can remove it. */
+}

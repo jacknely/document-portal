@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}.stl Submission Portal{% endblock %}
+
+{% block body %}
+
+
+
+
+        <div class="text-center">
+            <img src="/static/media/jlrlogo.png" height="120" style="margin: 50px"/>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                <label for="part_number">Part Number:</label>
+
+               <select name=part_number name="part_number" id="part_number">
+                    {% for parts in part_number %}
+                    <option value="{{program}}" SELECTED>{{ parts }} </option>
+                    {% endfor %}
+                    <option value="" disabled selected hidden>Select a Part Number</option>
+               </select>
+
+
+
+                </div>
+                <div class="form-group">
+                <label for="build_phase">Build Phase:</label>
+                <input type="text" style="" name="build_phase" id="build_phase"><br>
+                </div>
+                <div class="form-group">
+                <label for="supplier">Supplier:</label>
+                <input type="text" style="" name="supplier" id="supplier">
+                </div>
+                <div class="form-group">
+                <input type="file" style="padding-bottom: 5px; padding-left: 100px" name="file" id="file">
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary">Upload</button>
+                </form>
+            </form>
+        </div>
+
+
+{% endblock %}
