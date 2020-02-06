@@ -5,3 +5,9 @@
 .center {
     margin: 0 auto !important; /* I have added the !important attribute just for debugging, you can remove it. */
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #808080 !important;
+    border-color: #808000 !important;
+}

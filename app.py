@@ -61,9 +61,12 @@ class PartNumber(db.Model):
 
 @app.route('/')
 def index():
+    # get all input variables from db
     part_number = PartNumber.query.all()
+    build_phase = BuildPhase.query.all()
+    supplier = Supplier.query.all()
 
-    return render_template('index.html', part_number=part_number)
+    return render_template('index.html', part_number=part_number, build_phases=build_phase, suppliers=supplier)
 
 
 @app.route('/files')
