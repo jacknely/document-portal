@@ -75,15 +75,21 @@ def files():  # TODO add functionality to filter retrieve metadata
     my_bucket = s3_resource.Bucket(S3_BUCKET)
     summaries = my_bucket.objects.all()
 
-    """
+    files = []
     for object in summaries:
         bucket = object.bucket_name
         key = object.key
         response = s3.head_object(Bucket=bucket, Key=key)
-        print(response['Metadata']['part_number'])
-    """
 
-    return render_template('files.html', my_bucket=my_bucket, files=summaries)
+        file = {'key': key,
+                'part_number': response['Metadata']['part_number'],
+                'build_phase': response['Metadata']['build_phase'],
+                'supplier': response['Metadata']['supplier'],
+                'last_modified': object.last_modified,
+                }
+        files.append(file)
+
+    return render_template('files.html', files=files)
 
 
 @app.route('/upload', methods=['POST'])
