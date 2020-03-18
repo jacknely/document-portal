@@ -1,9 +1,9 @@
 # DocumentPortal
 
 ## Requirements
-Python 3
-Flask==1.1.1
-Flask-SQLAlchemy==2.4.1
+- Python 3
+- Flask==1.1.1
+- Flask-SQLAlchemy==2.4.1
 
 Install from requirements.txt
 
