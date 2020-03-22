@@ -1,5 +1,6 @@
-import os
 import mimetypes
+import os
+
 import arrow
 
 
@@ -24,7 +25,6 @@ def file_type(key):
     try:
         return mimetypes.types_map[file_extension]
     except KeyError():
-        return 'Unknown'
-
-
-
+        return "Unknown"
+    finally:
+        return "Unknown"

@@ -2,6 +2,7 @@
 
 ## Requirements
 - Python 3
+- Docker
 - Flask==1.1.1
 - Flask-SQLAlchemy==2.4.1
 
@@ -9,12 +10,17 @@ Install from requirements.txt
 
 
 ## Usage
-Running the web app.
+In the root directory execute the below code:
 ```
-set FLASK_APP=app.py
-flask run
+docker-compose up
 ```
-Navigate to host server in browser
+Navigate to localhost in browser with container running
 
 ### Upload files
 Submit form on index.html with file.
+
+### View Files
+With container running, navigate to the below address:
+```
+localhost:5000/files
+```
