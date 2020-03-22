@@ -1,62 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, Response
-from flask_sqlalchemy import SQLAlchemy
-from config import S3_BUCKET, S3_KEY, S3_SECRET
+from app import app
+from settings import S3_BUCKET, S3_KEY, S3_SECRET
 import boto3
-from services import format_date_time, file_type
-
+from .models import PartNumber, BuildPhase, Supplier
+from .services import file_type
 
 # initialising aws details from config file
 s3 = boto3.client(
     's3',
     aws_access_key_id=S3_KEY,
     aws_secret_access_key=S3_SECRET)
-
-
-# instantiate an instant of Flask named app
-app = Flask(__name__)
-
-app.secret_key = '56789dfbhj387dyhs'
-
-# set filters to be used in jinja2 from services
-app.jinja_env.filters['format_date_time'] = format_date_time
-app.jinja_env.filters['file_type'] = file_type
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///document.db'
-
-db = SQLAlchemy(app)
-
-
-class Supplier(db.Model):
-    """
-    supplier table fields for database mapping
-    """
-    id = db.Column(db.Integer, primary_key=True)
-    supplier = db.Column(db.String(200))
-
-    def __repr__(self):  # changes output of object when called
-        return f"{self.supplier}"
-
-
-class BuildPhase(db.Model):
-    """
-    build phase table fields for database mapping
-    """
-    id = db.Column(db.Integer, primary_key=True)
-    build_phase = db.Column(db.String(200))
-
-    def __repr__(self):  # changes output of object when called
-        return f"{self.build_phase}"
-
-
-class PartNumber(db.Model):
-    """
-    part number table fields for database mapping
-    """
-    id = db.Column(db.Integer, primary_key=True)
-    part_number = db.Column(db.String(200))
-
-    def __repr__(self):  # changes output of object when called
-        return f"{self.part_number}"
 
 
 @app.route('/')
@@ -130,16 +83,8 @@ def download():
     my_bucket = s3_resource.Bucket(S3_BUCKET)
     file_object = my_bucket.Object(key).get()
 
-
     return Response(
         file_object['Body'].read(),
         mimetype=file_type(key),
         headers={"Content-Disposition": f"attachment;filename={key}"}
     )
-
-
-if __name__ == '__main__':
-    db.create_all()
-    db.session.commit()
-    app.run()
-
