@@ -126,4 +126,5 @@ venv.bak/
 dmypy.json
 
 # misc
-app/open_postcode_geo.csv
+!/.aws/
+.aws/

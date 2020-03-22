@@ -1,14 +1,17 @@
-version: '2'
+version: '3'
 services:
   web:
     build: .
     ports:
       - "5000:5000"
     volumes:
-      - /Users/jacknely/Apps/DocumentPortal:/DocumentPortal"
+      - /Users/jacknely/Apps/DocumentPortal:/app
     links:
       - db:mysql
     container_name: document_web_1
+    environment:
+      - AWS_ACCESS_KEY_ID=${S3_KEY}
+      - AWS_SECRET_ACCESS_KEY=${S3_SECRET}
     depends_on:
       - db
 

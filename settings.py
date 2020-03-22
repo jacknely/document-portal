@@ -10,6 +10,5 @@ DB_URI="mysql+pymysql://%s:%s@%s/%s" % (DB_USERNAME, DB_PASSWORD, DB_HOST, DATAB
 SQLALCHEMY_DATABASE_URI = DB_URI
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
-S3_BUCKET = 'documentportal123'  # os.environ.get("S3_BUCKET")
-S3_KEY = 'AKIAIQGK6JDB4THSFNQA'  # os.environ.get("S3_KEY")
-S3_SECRET = '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'  # os.environ.get("S3_SECRET")
+S3_KEY = os.environ.get("S3_KEY")
+S3_SECRET = os.environ.get("S3_SECRET")
