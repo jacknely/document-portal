@@ -4,19 +4,16 @@
 
 {% block body %}
 
-
-
-
         <div class="text-center">
             <br><br>
-            <img src="/static/media/jlrlogo.png" height="110" style="margin: 50px"/>
+            <img src="../static/media/jlrlogo.png" height="110" style="margin: 50px"/>
             <form action="/upload" method="post" enctype="multipart/form-data">
 
                 <div class="form-group-sm">
                <label for="part_number">Part Number:</label>
                <select name=part_number name="part_number" id="part_number">
-                    {% for parts in part_number %}
-                    <option value="{{program}}" SELECTED>{{ parts }} </option>
+                    {% for part in part_number %}
+                    <option value="{{ part }}" SELECTED>{{ part }} </option>
                     {% endfor %}
                     <option value="" disabled selected hidden>Select a Part Number</option>
                </select>
@@ -50,6 +47,5 @@
                 </form>
             </form>
         </div>
-
 
 {% endblock %}

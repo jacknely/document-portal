@@ -126,4 +126,9 @@ venv.bak/
 dmypy.json
 
 # misc
+<<<<<<< HEAD
 !/document.db
+=======
+!/.aws/
+.aws/
+>>>>>>> 7b67654a0e77e247e7dc28f46401a9264b513f67
