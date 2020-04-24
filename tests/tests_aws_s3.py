@@ -1,4 +1,5 @@
 import boto3
+import os
 import pytest
 from moto import mock_s3
 from werkzeug.datastructures import FileStorage
@@ -12,6 +13,8 @@ test_bucket = "testbucket2345678"
 def moto_boto():
     mock = mock_s3()
     mock.start()
+    os.environ['AWS_ACCESS_KEY_ID'] = 'foo'
+    os.environ['AWS_SECRET_ACCESS_KEY'] = 'bar'
     conn = boto3.resource("s3", region_name="us-east-1")
     conn.create_bucket(Bucket=test_bucket)
     yield conn
