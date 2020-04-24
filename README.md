@@ -1,3 +1,7 @@
+![Python package](https://github.com/jacknely/DocumentPortal/workflows/Python%20package/badge.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![Docker Image CI](https://github.com/jacknely/DocumentPortal/workflows/Docker%20Image%20CI/badge.svg)
+![Python application](https://github.com/jacknely/DocumentPortal/workflows/Python%20application/badge.svg)
 # DocumentPortal
 
 ## Requirements
