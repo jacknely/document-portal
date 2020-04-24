@@ -1,8 +1,9 @@
 import boto3
 import pytest
-from app.aws_s3 import AwsS3
 from moto import mock_s3
 from werkzeug.datastructures import FileStorage
+
+from app.aws_s3 import AwsS3
 
 test_bucket = "testbucket2345678"
 

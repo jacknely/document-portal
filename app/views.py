@@ -1,6 +1,7 @@
-from app.aws_s3 import AwsS3
 from flask import (Blueprint, Response, flash, redirect, render_template,
                    request, url_for)
+
+from app.aws_s3 import AwsS3
 
 from .models import BuildPhase, PartNumber, Supplier
 from .services import file_type

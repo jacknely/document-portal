@@ -4,7 +4,7 @@ from pathlib import Path
 from app import create_app
 from flask_script import Manager, Server
 
-app = create_app("config.ProdConfig")
+app = create_app("config.DevConfig")
 
 sys.path.append(str(Path(".").absolute().parent))
 

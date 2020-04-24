@@ -1,7 +1,8 @@
-import boto3
 import pytest
-from app import create_app
+import boto3
 from moto import mock_s3
+
+from app import create_app
 
 test_bucket = "testbucket2345678"
 

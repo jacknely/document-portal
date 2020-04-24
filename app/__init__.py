@@ -13,6 +13,6 @@ def create_app(config):
         app.jinja_env.filters["format_date_time"] = format_date_time
         app.jinja_env.filters["file_type"] = file_type
         db.init_app(app)
-        # dbinit(True)
+        dbinit(False)
 
     return app
