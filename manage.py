@@ -1,16 +1,18 @@
-import os
 import sys
+from pathlib import Path
 
+from app import create_app
 from flask_script import Manager, Server
 
-from app import app
+app = create_app("config.ProdConfig")
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(str(Path(".").absolute().parent))
 
 manager = Manager(app)
 
 manager.add_command(
-    "runserver", Server(use_debugger=True, use_reloader=True, host="0.0.0.0", port=5000)
+    "runserver",
+    Server(use_debugger=True, use_reloader=True, host="0.0.0.0", port=5000),
 )
 
 if __name__ == "__main__":

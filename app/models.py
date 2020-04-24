@@ -1,4 +1,20 @@
-from app import db
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
+
+def dbinit(sample_data):
+    db.create_all()
+
+    if sample_data:
+        part1 = PartNumber("01234")
+        db.session.add(part1)
+        supplier1 = Supplier("Test1")
+        db.session.add(supplier1)
+        build_phase1 = BuildPhase("Phase 1")
+        db.session.add(build_phase1)
+
+    db.session.commit()
 
 
 class Supplier(db.Model):
