@@ -3,17 +3,20 @@
 ![Docker Image CI](https://github.com/jacknely/DocumentPortal/workflows/Docker%20Image%20CI/badge.svg)
 ![Python application](https://github.com/jacknely/DocumentPortal/workflows/Python%20application/badge.svg)
 # DocumentPortal
+Flask application for uploading documents to an S3 bucket with associated file information as metadata
 
 ## Requirements
-- Python 3
+- Python 3.6, 3.7, 3.8
 - Docker
-- Flask==1.1.1
-- Flask-SQLAlchemy==2.4.1
+- Flask
 
 Install from requirements.txt
 
+## Setup
+AWS credentials need to be installed before use. Bucket name should be updated in app/views.py
 
-## Usage
+
+## Installation
 In the root directory execute the below code:
 ```
 docker-compose up
